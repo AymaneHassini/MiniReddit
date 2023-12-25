@@ -1,9 +1,14 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>MiniReddit Dashboard</title>
-</head>
-<body>       
-    <h1>MiniReddit Dashboard</h1>       
-</body>   
+<html xmlns:th="http://thymeleaf.org">
+  <head>
+    <title>Mini Reddit Dashboard</title>
+  </head>
+  <body>
+    <h1>Mini Reddit Dashboard</h1>
+    
+    <form action="/logout" method="post">
+      <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+      <button type="submit">Logout</button>
+    </form>
+  </body>
 </html>

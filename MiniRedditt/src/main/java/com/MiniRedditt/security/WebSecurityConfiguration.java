@@ -34,8 +34,6 @@ public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            // Disabling CSRF
-            .csrf(csrf -> csrf.disable())
             // Authorize requests
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/").permitAll()
@@ -43,12 +41,13 @@ public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
             // Form login
             .formLogin(form -> form
                 .loginPage("/login")
+                .defaultSuccessUrl("/dashboard")
                 .permitAll())
             // Logout configuration
             .logout(logout -> logout
                 .logoutUrl("/logout")
                 .permitAll());
-
+        	
         return http.build();
     }
 }
