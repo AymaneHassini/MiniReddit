@@ -8,6 +8,12 @@
 </head>
 
 <body>
+	<!--
+		Http post->create
+		Http get-> read
+		Http put-> update
+		Http delete-> delete
+		-->
 	<div class="container" style="margin-top: 1.5em;">
 		<div class="row">
 			<h1>Mini Reddit Dashboard</h1>
@@ -22,9 +28,12 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="column">
+		<div class="col">
+			<form action="/products" method="post" >
+				
+			<input type="hidden" th:name="${_csrf.parameterName}"th:value="${_csrf.token}" />
 			<button type="submit" class="btn btn-primary" id="createProduct">Create a Product</button>
-
+			</form>
 		</div>
 
 
